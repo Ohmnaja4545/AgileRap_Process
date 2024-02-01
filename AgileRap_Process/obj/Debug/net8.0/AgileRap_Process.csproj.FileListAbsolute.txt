@@ -262,3 +262,4 @@ D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\bin\Debug\ne
 D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\bin\Debug\net8.0\MailKit.dll
 D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\bin\Debug\net8.0\MimeKit.dll
+D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\obj\Debug\net8.0\AgileRap_Process.sourcelink.json

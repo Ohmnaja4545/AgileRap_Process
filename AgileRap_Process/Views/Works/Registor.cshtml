@@ -1,8 +1,12 @@
 ﻿@model AgileRap_Process.Models.User
+@{
+    ViewData["Title"] = "Registor";
+
+    Layout = "~/Views/Home/AuthLayout.cshtml";
+
+}
 <h1>Register</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+
         @if (TempData["DuplicateEmail"] != null)
         {
             <p style="color:red;">@TempData["DuplicateEmail"]</p>
@@ -46,12 +50,10 @@
                 <input type="submit" value="Register" class="btn btn-primary" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
+@* <div>
     <a asp-action="Login">Login Form</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,0 +1,92 @@
+﻿@model AgileRap_Process.Models.User
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #FFFAF0;
+    }
+
+    .nav-tabs .nav-link {
+        color: black;
+        border: 1px solid #ced4da;
+       
+    }
+        .nav-tabs .nav-link.active {
+            color: #ffffff;
+            background-color: #007bff;                   
+        }
+
+
+
+    h1 {
+        font-size: 2.5em;
+        color: black;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-family: "Lucida Console", "Courier New", monospace;
+        font-size: 1.5em;
+        color: #00000;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    
+    
+</style>
+
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-5 mt-5">
+            <div class="row justify-content-center">
+                <h1 class="display-4">Welcome to Agilerap Process</h1>
+                <img src="https://scontent.fbkk12-1.fna.fbcdn.net/v/t39.30808-6/306047967_763344048339876_5159997812934413183_n.png?_nc_cat=101&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeECRYb6xMQei2ZUNtBsQZLye-ezJ_DlQJF757Mn8OVAkbvKx_1HQvncqVsiIAzs8cz4yQFqAfpcqHnXNA-otK2l&_nc_ohc=hyGhWX7ZO4sAX9ICQ8X&_nc_oc=AQkdwKknSnbUONxA7JMYcucHa6RRFYdVn8EyjiQM6PLgzLCZXVdZq6XkzMnPprYxZ1vOmmMZ2M5Lt0gS4BJ7FhKM&_nc_ht=scontent.fbkk12-1.fna&oh=00_AfATZhU5bRG1aW79KTDDn0ofoMZ34-xYQA_0B-7ZwXWvjg&oe=65C0572F" alt="Agilerap Logo" style="max-width: 50%; height: auto; margin-top: 20px;">
+            </div>
+        </div>
+        <div class="col-5 mt-5">
+            <div class="card login-logout-card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Works/Login">
+                                Log In
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Works/Registor">
+                                Register
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-10 my-4">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(function () {
+            const currentPage = location.pathname;
+            $('.nav-tabs li a').each(function () {
+                const $this = $(this);
+                if (currentPage.toLowerCase().indexOf($this.attr('href').toLowerCase()) !== -1) {
+                    $this.addClass('active');
+                }
+            })
+        })
+    </script>
+}

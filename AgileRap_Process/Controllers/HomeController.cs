@@ -28,5 +28,10 @@ namespace AgileRap_Process.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult AuthLayout()
+        {
+            return View();
+        }
     }
 }

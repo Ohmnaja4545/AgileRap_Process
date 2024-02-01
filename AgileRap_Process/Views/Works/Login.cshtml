@@ -2,13 +2,14 @@
 
 @{
     ViewData["Title"] = "Login";
+
+    Layout = "~/Views/Home/AuthLayout.cshtml";
+
 }
 
 <h1>Login</h1>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
+
 
         @if (ViewBag.Message != null)
         {
@@ -23,7 +24,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>          
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,11 +38,10 @@
             </div>
         </form>
         <br />
-        <p>
+       @*  <p>
             <a asp-controller="Works" asp-action ="Registor">SignUp</a>
-        </p>
-    </div>
-</div>
+        </p> *@
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

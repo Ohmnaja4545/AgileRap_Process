@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Home/AuthLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBdXRoTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

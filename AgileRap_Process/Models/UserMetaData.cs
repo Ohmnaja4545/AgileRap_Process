@@ -10,6 +10,7 @@ namespace AgileRap_Process.Models
     public partial class User
     {
         [DataType(DataType.Password)]
+        [Required]
         [NotMapped]
         public string? ConfirmPassword { get; set; }
         [NotMapped]
