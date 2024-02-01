@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AgileRap_Process
+build_property.RootNamespace = AgileRap_Process
+build_property.ProjectDir = D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\ฝึกงาน_dotnet_core\Agilerap_Process\AgileRap_Process
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Displaytemplates/ProviderLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXERpc3BsYXl0ZW1wbGF0ZXNcUHJvdmlkZXJMb2cuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Displaytemplates/Work.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXERpc3BsYXl0ZW1wbGF0ZXNcV29yay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Displaytemplates/WorkLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXERpc3BsYXl0ZW1wbGF0ZXNcV29ya0xvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Editortemplates/Provider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvcnRlbXBsYXRlc1xQcm92aWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Editortemplates/ProviderLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvcnRlbXBsYXRlc1xQcm92aWRlckxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Editortemplates/Status.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvcnRlbXBsYXRlc1xTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Editortemplates/Work.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvcnRlbXBsYXRlc1xXb3JrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Editortemplates/WorkLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVkaXRvcnRlbXBsYXRlc1xXb3JrTG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Registor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcUmVnaXN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Works/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ฝึกงาน_dotnet_core/Agilerap_Process/AgileRap_Process/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-f1251wp8a8

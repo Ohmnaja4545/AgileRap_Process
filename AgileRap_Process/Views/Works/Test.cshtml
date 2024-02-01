@@ -1,0 +1,322 @@
+﻿@model AgileRap_Process.Models.Work
+
+<style>
+    .table th {
+        background-color: #FF7F50;
+        color: #fff;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .multiselect-container {
+        max-width: 18em; /* Adjust the width as needed */
+    }
+
+    .custom-dropdown {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23343a40"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+        background-repeat: no-repeat;
+        background-position: right 5px top 50%;
+        padding-right: 25px; /* Adjust as needed */
+        background-size: 15px
+    }
+</style>
+
+
+@using (Html.BeginForm("Create", "Works", FormMethod.Post, new { role = "form", id = "myform", name = "myform" }))
+{
+    <input hidden asp-for="ProviderValue" id="ProviderValue" />
+    <input hidden asp-for="areAllSelected" id="areAllSelected" />
+
+    <div class="container mt-3">
+        <h1>สร้างรายการงาน</h1>
+        <table class="table table-striped table-bordered">
+            <!-- Header row -->
+            <tr>
+                <th>Create Date</th>
+                <th style="width: 150px;">@Html.DisplayNameFor(model => model.Project)</th>
+                <th style="width: 150px;">@Html.DisplayNameFor(model => model.Name)</th>
+                <th>Due Date</th>
+                <th style="width: 50px;">Assign By/ Requester</th>
+                <th>Assign By/ Provider</th>
+                <th style="width: 680px;">Status</th>
+                <th style="width: 150px;">@Html.DisplayNameFor(model => model.Remark)</th>
+                <th style="width: 550px;">Manage</th>
+
+            </tr>
+
+            <!-- Data rows -->
+            @foreach (var item in ViewBag.work as IEnumerable<AgileRap_Process.Models.Work>)
+            {
+                <tr>
+
+                    @if (item.DueDate == null)
+                    {
+                        if (item.CreateDate.HasValue && item.CreateDate.Value < DateTime.Now.AddDays(-1))
+                        {
+                            <td style="background-color:#F08080">
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
+                            <td style="background-color:#F08080">
+                                @Html.DisplayFor(modelItem => item.Project)
+                            </td>
+                            <td style="background-color:#F08080">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td style="background-color:#F08080">
+                                @Html.DisplayFor(modelItem => item.DueDate)
+                            </td>
+                            <td style="background-color:#F08080">
+                                @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                                {
+                                    @if (item.CreateBy == user.ID)
+                                    {
+                                        @Html.DisplayFor(m => user.Name)
+
+                                    }
+                                }
+                            </td>
+
+                            <td style="background-color:#F08080">
+                                @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                                {
+                                    if (provider.WorkID == item.ID)
+                                    {
+                                        <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                                    }
+                                }
+                            </td>
+
+                            <td style="background-color:#F08080">
+                                @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                                {
+                                    if (item.StatusID == status.ID)
+                                    {
+                                        <p>@Html.DisplayFor(model => status.StatusName)</p>
+                                    }
+                                }
+                            </td>
+                            <td style="background-color:#F08080">
+
+                                @Html.DisplayFor(modelItem => item.Remark)
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Project)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DueDate)
+                            </td>
+                            <td>
+                                @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                                {
+                                    @if (item.CreateBy == user.ID)
+                                    {
+                                        @Html.DisplayFor(m => user.Name)
+
+                                    }
+                                }
+                            </td>
+                            <td>
+                                @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                                {
+                                    if (provider.WorkID == item.ID)
+                                    {
+                                        <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                                    }
+                                }
+                            </td>
+
+                            <td>
+                                @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                                {
+                                    if (item.StatusID == status.ID)
+                                    {
+                                        <p>@Html.DisplayFor(model => status.StatusName)</p>
+                                    }
+                                }
+                            </td>
+                            <td>
+
+                                @Html.DisplayFor(modelItem => item.Remark)
+                            </td>
+                        }
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                            {
+                                @if (item.CreateBy == user.ID)
+                                {
+                                    @Html.DisplayFor(m => user.Name)
+
+                                }
+                            }
+                        </td>
+                        <td>
+                            @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                            {
+                                if (provider.WorkID == item.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                                }
+                            }
+                        </td>
+
+                        <td>
+                            @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                            {
+                                if (item.StatusID == status.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => status.StatusName)</p>
+                                }
+                            }
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                    }
+                    <td>
+                        @* @Html.ActionLink("History", "History", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" }) *@
+                    </td>
+                </tr>
+            }
+
+            <!-- New row for creating a new task -->
+            <tr>
+                <td>@DateTime.Now.ToShortDateString()</td>
+                <td>@Html.EditorFor(m => m.Project, new { htmlAttributes = new { @class = "form-control", required = "required" } })</td>
+                <td>@Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })</td>
+                @* <td>@Html.EditorFor(m => m.DueDate, new { htmlAttributes = new { @class = "form-control" } })</td> *@
+                <td>@Html.EditorFor(m => m.DueDate, new { htmlAttributes = new { @class = "form-control", id = "DueDate" } })</td>
+                <td>
+                    @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                    {
+                        @if (ViewBag.CreateByID == user.ID)
+                        {
+                            @Html.DisplayFor(m => user.Name)
+                        }
+                    }
+                </td>
+                <td>
+                    <select id="select-tops-options" required multiple="multiple" class="form-control">
+                        @{
+                            foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                            {
+                                <option value="@user.ID">@user.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+                @* <td>@Html.DropDownListFor(model => model.Status.StatusName, new SelectList(ViewBag.status, "ID", "StatusName"), new { @class = "form-control" })</td> *@
+                <td>@Html.DropDownListFor(model => model.StatusID, new SelectList(ViewBag.status, "ID", "StatusName"), new { @class = "form-control custom-dropdown", id = "Status", disabled = "disabled" })</td>
+
+                <td hidden>@Html.DropDownListFor(model => model.StatusID, new SelectList(ViewBag.status, "ID", "StatusName"), new { @class = "form-control", id = "Status2" })</td>
+
+                <td>@Html.EditorFor(m => m.Remark, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>
+                    <input class="btn btn-primary" type="submit" value="Save" />
+                    @Html.ActionLink("Cancel", "Index", new { }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        </table>
+        <a asp-controller="Works" asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded",
+        () => {
+            $('#select-tops-options').multiselect({
+                buttonClass: 'form-select',
+                nonSelectedText: 'Select',
+                buttonContainer: '<div class="btn-danger" id="select-tops-options-container"></div>',
+                selectedClass: 'active multiselect-selected',
+                numberDisplayed: 5,
+                buttonWidth: '18em',
+                includeSelectAllOption: true,
+                onSelectAll: function (options) {
+                    document.getElementById("areAllSelected").value = true;
+                },
+                onDeselectAll: function (options) {
+                    document.getElementById("areAllSelected").value = false;
+                },
+                //includeResetOption: true,
+                //selectAllName: 'select-all-name',
+                onChange: function (option, checked) {
+                    /*
+                     * Not there yet
+                     */
+                    if (checked) {
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[1].ariaChecked = "true";
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[0].ariaChecked = "true";
+                    } else {
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[1].ariaChecked = "false";
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[0].ariaChecked = "false";
+                    }
+
+                    //$("#select-tops-options").multiselect('deselect', '1');
+                    var toppings = $('#select-tops-options option:selected');
+
+                    var selected = [];
+                    $(toppings).each(function (index, item) {
+                        selected.push([$(this).val()]);
+                    });
+
+                    document.getElementById("ProviderValue").value = selected.join(',');
+                },
+                templates: {
+                    button:
+                        '<button type="button" class="multiselect dropdown-toggle" ' +
+                        'data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
+                    resetButton: '<div class="multiselect-reset text-center p-2"><button type="button" class="btn btn-sm btn-danger"></button></div>'
+                }
+            });
+
+        });
+</script>
+
+<script>
+
+    document.getElementById("DueDate").addEventListener("change", function () {
+
+        var newDueDate = document.getElementById("DueDate").value;
+
+        document.getElementById("Status").value = 2;
+        document.getElementById("Status2").value = 2;
+        if (newDueDate == "") {
+            document.getElementById("Status").value = 1;
+            document.getElementById("Status2").value = 1;
+        }
+    });
+</script>

@@ -1,0 +1,16 @@
+﻿@model AgileRap_Process.Models.ProviderLog
+
+@Html.HiddenFor(m => m.ID)
+@Html.HiddenFor(m => m.WorkLogID)
+
+
+@foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+{
+    if (Model.UserID == user.ID)
+    {
+        @Html.DisplayFor(m => user.Name)
+    }
+}
+
+
+

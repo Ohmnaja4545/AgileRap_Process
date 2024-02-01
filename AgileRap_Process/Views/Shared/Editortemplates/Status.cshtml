@@ -1,0 +1,12 @@
+﻿@model AgileRap_Process.Models.Status
+@{
+    var selectedWork = ViewBag.selectedWork as AgileRap_Process.Models.Work;
+
+}
+@Html.HiddenFor(m => m.ID)
+@Html.HiddenFor(m => m.StatusName)
+@Html.HiddenFor(m => m.Work)
+
+@* @Html.DropDownListFor(m => m.ID, new SelectList(ViewBag.status, "ID", "StatusName", selectedWork.Status.StatusName), "Select Status") *@
+@* @Html.DropDownListFor(m => m.ID, new SelectList(ViewBag.status, "ID", "StatusName", selectedWork.Status.ID), "Select Status") *@
+@* @Html.DropDownListFor(m => m.ID, new SelectList(ViewBag.status, "ID", "StatusName", selectedWork.Status.ID), "Select Status") *@

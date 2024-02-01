@@ -1,0 +1,71 @@
+﻿@model AgileRap_Process.Models.Work
+
+<style>
+    .table th {
+        background-color: #FF7F50;
+        color: #fff;
+    }
+
+    .custom-dropdown {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23343a40"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+        background-repeat: no-repeat;
+        background-position: right 5px top 50%;
+        padding-right: 25px; /* Adjust as needed */
+        background-size: 15px
+    }
+</style>
+
+@{
+    // @Html.HiddenFor(m => m.StatusID)
+    var selectedWork = ViewBag.selectedWork as AgileRap_Process.Models.Work;
+}
+
+
+@using (Html.BeginForm("Edit", "Works", FormMethod.Post, new { role = "form", id = "myform", name = "myform" }))
+{
+
+    <div hidden>
+        @* @Html.EditorFor(m => m.StatusID) *@
+        @Html.EditorFor(m => m.ID)
+        @Html.EditorFor(m => m.CreateDate)
+        @Html.EditorFor(m => m.UpdateDate)
+        @Html.EditorFor(m => m.Provider)
+        @Html.EditorFor(m => m.Status)
+        @Html.EditorFor(m => m.WorkLog)
+        @Html.EditorFor(m => m.CreateBy)
+        @Html.EditorFor(m => m.UpdateBy)
+        @Html.EditorFor(m => m.IsDelete)
+    </div>
+    <h1>แก้ไขรายการงาน</h1>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Create Date</th>
+            <th style="width: 150px;">@Html.DisplayNameFor(model => model.Project)</th>
+            <th style="width: 150px;">@Html.DisplayNameFor(model => model.Name)</th>
+            <th>Due Date</th>
+            <th>Assign By/ Requester</th>
+            <th>Assign By/ Provider</th>
+            <th style="width: 220px;">Status</th>
+            <th style="width: 150px;">@Html.DisplayNameFor(model => model.Remark)</th>
+            <th style="width: 280px;">Manage</th>
+
+        </tr>   
+
+        @foreach (var work2 in ViewBag.work2 as IEnumerable<AgileRap_Process.Models.Work>)
+        {
+            @if (Model.ID != work2.ID)
+            {
+                @Html.DisplayFor(m => work2)
+            }
+            else
+            {              
+                @Html.EditorFor(m => m)              
+            }
+        }
+    </table>
+}
+
+@Html.ActionLink("Create", "Test", new { }, new { @class = "btn btn-success" })

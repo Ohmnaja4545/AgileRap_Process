@@ -1,0 +1,239 @@
+﻿@model IEnumerable<AgileRap_Process.Models.Work>
+
+<style>
+    .table th {
+        background-color: #FF7F50;
+        color: #fff;
+    }
+
+    .history-table {
+        margin-right: 20px;
+    }
+
+    .info-section {
+        display: flex;
+        margin-top: 20px;
+    }
+
+        .info-section div {
+            margin-right: 20px;
+        }
+</style>
+</>
+<div class="">
+   <h1>
+        รายการงาน
+   </h1> 
+</div>
+<div class="info-section">
+<div class="history-table">
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+                    Create Date
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+                    Due Date
+        </th>
+        <th>
+            @* @Html.DisplayNameFor(model => model.CreateBy) *@
+            Assign By/ Requester
+        </th>
+        <th>
+            Assign By/ Provider
+        </th>
+        <th>
+            Status
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th>
+            Manage
+        </th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                @if (item.DueDate == null)
+                {
+                    if (item.CreateDate.HasValue && item.CreateDate.Value < DateTime.Now.AddDays(-1))
+                    {
+                        @* <p>@DateTime.Now.AddDays(-1)</p> *@
+                        <td style="background-color:#F08080">
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td style="background-color:#F08080">
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </td>
+                        <td style="background-color:#F08080">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td style="background-color:#F08080">
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td style="background-color:#F08080">
+                            @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                            {
+                                @if (item.CreateBy == user.ID)
+                                {
+                                    @Html.DisplayFor(m => user.Name)
+
+                                }
+                            }
+                        </td>
+                        <td style="background-color:#F08080">
+                            @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                            {
+                                if (provider.WorkID == item.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                                }
+                            }
+                        </td>
+                        
+                        <td style="background-color:#F08080">
+                            @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                            {
+                                if (item.StatusID == status.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => status.StatusName)</p>
+                                }
+                            }
+                        </td>
+                        <td style="background-color:#F08080">
+
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                            {
+                                @if (item.CreateBy == user.ID)
+                                {
+                                    @Html.DisplayFor(m => user.Name)
+
+                                }
+                            }
+
+                        </td>
+
+                        <td>
+                            @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                            {
+                                if (provider.WorkID == item.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                                }
+                            }
+                        </td>
+                        
+                        <td>
+                            @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                            {
+                                if (item.StatusID == status.ID)
+                                {
+                                    <p>@Html.DisplayFor(model => status.StatusName)</p>
+                                }
+                            }
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                    }
+                }
+                else
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Project)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                        {
+                            @if (item.CreateBy == user.ID)
+                            {
+                                @Html.DisplayFor(m => user.Name)
+
+                            }
+                        }
+                    </td>
+                    <td>
+                        @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                        {
+                            if (provider.WorkID == item.ID)
+                            {
+                                <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                            }
+                        }
+                    </td>
+                    
+                    <td>
+                        @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                        {
+                            if (item.StatusID == status.ID)
+                            {
+                                <p>@Html.DisplayFor(model => status.StatusName)</p>
+                            }
+                        }
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Remark)
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("History", "History", new { id = item.ID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+</div>
+
+
+@Html.ActionLink("Create", "Test", new{ }, new { @class = "btn btn-success" })
+
+
+
+
+
+

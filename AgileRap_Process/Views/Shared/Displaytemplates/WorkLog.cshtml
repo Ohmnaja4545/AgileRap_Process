@@ -1,0 +1,40 @@
+﻿@model AgileRap_Process.Models.WorkLog
+
+@Html.HiddenFor(m => m.ID)
+@Html.HiddenFor(m => m.WorkID)
+
+<td>
+    @Html.DisplayFor(m => m.No)
+</td>
+<td>
+    @Html.DisplayFor(m => m.Project)
+</td>
+
+<td>
+    @Html.DisplayFor(m => m.Name)
+</td>
+@foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+{
+    if(Model.StatusID == status.ID)
+    {
+        <td>
+            @Html.DisplayFor(m => status.StatusName)
+        </td>
+    }
+}
+<td>
+    @Html.DisplayFor(m => m.Remark)
+
+</td>
+
+<td>
+    @Html.DisplayFor(m => m.providerLogs)
+
+</td>
+
+@Html.HiddenFor(m => m.DueDate)
+@Html.HiddenFor(m => m.CreateDate)
+@Html.HiddenFor(m => m.UpdateDate)
+@Html.HiddenFor(m => m.IsDelete)
+@Html.HiddenFor(m => m.providerLogs)
+

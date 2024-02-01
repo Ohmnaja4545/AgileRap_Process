@@ -1,0 +1,221 @@
+﻿@model AgileRap_Process.Models.Work
+@{
+    List<SelectListItem> selectStatus = ViewBag.selectStatus;
+    var selectedWork = ViewBag.selectedWork as AgileRap_Process.Models.Work;
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+}
+@Html.HiddenFor(m => m.ID)
+@* @Html.HiddenFor(m => m.ProviderValue)
+@Html.HiddenFor(m => m.areAllSelected) *@
+<tr>
+
+    @if (Model.DueDate == null)
+    {
+        if (Model.CreateDate.HasValue && Model.CreateDate.Value < DateTime.Now.AddDays(-1))
+        {
+            <td style="background-color:#F08080">
+                @Html.DisplayFor(modelItem => Model.CreateDate)
+            </td>
+            <td style="background-color:#F08080">
+                @Html.DisplayFor(modelItem => Model.Project)
+            </td>
+            <td style="background-color:#F08080">
+                @Html.DisplayFor(modelItem => Model.Name)
+            </td>
+            <td style="background-color:#F08080">
+                @Html.DisplayFor(modelItem => Model.DueDate)
+            </td>
+            <td style="background-color:#F08080">
+                @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                {
+                    @if (Model.CreateBy == user.ID)
+                    {
+                        @Html.DisplayFor(m => user.Name)
+
+                    }
+                }
+            </td>
+            <td style="background-color:#F08080">
+                @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                {
+                    if (provider.WorkID == Model.ID)
+                    {
+                        <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                    }
+                }
+            </td>
+            
+            <td style="background-color:#F08080">
+                @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                {
+                    if (Model.StatusID == status.ID)
+                    {
+                        <p>@Html.DisplayFor(model => status.StatusName)</p>
+                    }
+                }
+            </td>
+            <td style="background-color:#F08080">
+
+                @Html.DisplayFor(modelItem => Model.Remark)
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.DisplayFor(modelItem => Model.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Project)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.DueDate)
+            </td>
+            <td>
+                @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+                {
+                    @if (Model.CreateBy == user.ID)
+                    {
+                        @Html.DisplayFor(m => user.Name)
+
+                    }
+                }
+            </td>
+            <td>
+                @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+                {
+                    if (provider.WorkID == Model.ID)
+                    {
+                        <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                    }
+                }
+            </td>
+            
+            <td>
+                @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+                {
+                    if (Model.StatusID == status.ID)
+                    {
+                        <p>@Html.DisplayFor(model => status.StatusName)</p>
+                    }
+                }
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => Model.Remark)
+            </td>
+        }
+    }
+    else
+    {
+        <td>
+            @Html.DisplayFor(modelItem => Model.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Project)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.DueDate)
+        </td>
+        <td>
+            @foreach (var user in ViewBag.user as IEnumerable<AgileRap_Process.Models.User>)
+            {
+                @if (Model.CreateBy == user.ID)
+                {
+                    @Html.DisplayFor(m => user.Name)
+
+                }
+            }
+        </td>
+        <td>
+            @foreach (var provider in ViewBag.provider as IEnumerable<AgileRap_Process.Models.Provider>)
+            {
+                if (provider.WorkID == Model.ID)
+                {
+                    <p>@Html.DisplayFor(model => provider.User.Name)</p>
+
+                }
+            }
+        </td>
+
+        <td>
+            @foreach (var status in ViewBag.status as IEnumerable<AgileRap_Process.Models.Status>)
+            {
+                if (Model.StatusID == status.ID)
+                {
+                    <p>@Html.DisplayFor(model => status.StatusName)</p>
+                }
+            }
+        </td>
+        <td>
+
+            @Html.DisplayFor(modelItem => Model.Remark)
+        </td>
+    }
+    <td>
+        @* @Html.ActionLink("History", "History", new { id = item.ID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" }) *@
+    </td>
+</tr>
+
+<script>
+    document.addEventListener("DOMContentLoaded",
+        () => {
+
+
+            $('#select-tops-options').multiselect({
+                buttonClass: 'form-select',
+                nonSelectedText: 'Select toppings',
+                buttonContainer: '<div class="btn-danger" id="select-tops-options-container"></div>',
+                selectedClass: 'active multiselect-selected',
+                numberDisplayed: 5,
+                buttonWidth: '18em',
+                includeSelectAllOption: true,
+                onSelectAll: function (options) {
+                    document.getElementById("areAllSelected").value = true;
+                },
+                onDeselectAll: function (options) {
+                    document.getElementById("areAllSelected").value = false;
+                },
+                //includeResetOption: true,
+                //selectAllName: 'select-all-name',
+                onChange: function (option, checked) {
+                    /*
+                     * Not there yet
+                     */
+                    if (checked) {
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[1].ariaChecked = "true";
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[0].ariaChecked = "true";
+                    } else {
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[1].ariaChecked = "false";
+                        document.querySelectorAll(`[value="${$(option[0])[0].value}"]`)[0].ariaChecked = "false";
+                    }
+
+                    //$("#select-tops-options").multiselect('deselect', '1');
+                    var toppings = $('#select-tops-options option:selected');
+
+                    var selected = [];
+                    $(toppings).each(function (index, item) {
+                        selected.push([$(this).val()]);
+                    });
+
+                    document.getElementById("ProviderValue").value = selected.join(',');
+                },
+                templates: {
+                    button:
+                        '<button type="button" class="multiselect dropdown-toggle" ' +
+                        'data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
+                    resetButton: '<div class="multiselect-reset text-center p-2"><button type="button" class="btn btn-sm btn-danger"></button></div>'
+                }
+            });
+
+        });
+</script>
